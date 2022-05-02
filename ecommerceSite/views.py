@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from laptop.models import LaptopItem
 
 from store.models import Item
 
