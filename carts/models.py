@@ -10,11 +10,13 @@ class Cart(models.Model):
         return self.cart_id
 
 class CartItem(models.Model):
-    sell_price = models.FloatField()
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     is_active = models.BooleanField(default=True)
+
+    def sub_total(self):
+        return self.item.public_price * self.quantity
 
     def __str__(self):
         return self.item
