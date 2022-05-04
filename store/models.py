@@ -4,6 +4,10 @@ from django.urls import reverse
 from clothes.models import Clothes
 from laptop.models import Laptop
 from mobilePhone.models import MobilePhone
+from book.models import Book
+from shoes.models import Shoes
+from electronic.models import Electronic
+
 
 
 class ItemType(models.Model):
@@ -82,4 +86,16 @@ class MobilePhoneItem(Item):
     color = models.CharField(max_length=255)
     mobile_phone = models.ForeignKey(MobilePhone, on_delete=models.CASCADE)
 
-
+class ElectronicItem(Item):
+    color = models.CharField(max_length=255)
+    warranty = models.CharField(max_length=255)
+    ElectronicID = models.ForeignKey(Electronic, on_delete=models.CASCADE)
+    
+class ShoeItem(Item):
+    size = models.CharField(max_length=255)
+    color = models.CharField(max_length=255)
+    shoeID = models.ForeignKey(Shoes, on_delete=models.CASCADE)
+    
+class BookItem(Item):
+    edition = models.CharField(max_length=255)
+    bookID = models.ForeignKey(Book, on_delete=models.CASCADE)
