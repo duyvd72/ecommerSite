@@ -1,34 +1,37 @@
 from statistics import mode
 from django.db import models
 class Customer (models.Model):
-        idCard= models.CharField()
-        mail=models.CharField()
-        phone=models.CharField()
-        
+        idCard= models.CharField(max_length=255)
+        mail=models.CharField(max_length=255)
+        phone=models.CharField(max_length=255)
+        class Meta:
+                verbose_name = 'Customer'
+                verbose_name_plural = 'Customer'
 class Fullname (models.Model):
-        FirstName= models.CharField()
-        LastName=models.CharField()
+        FirstName= models.CharField(max_length=255)
+        LastName=models.CharField(max_length=255)
         customerID=models.ForeignKey(Customer,on_delete=models.CASCADE)
         
 class customerMember(models.Model):
         point=models.IntegerField()
-        level=models.CharField()
+        level=models.CharField(max_length=255)
         customerID=models.ForeignKey(Customer,on_delete=models.CASCADE)
 
 class Address(models.Model):
-        nohouse=models.CharField()
-        street=models.CharField()
-        district=models.CharField()
-        city=models.CharField()
-        nationality=models.CharField()
+        nohouse=models.CharField(max_length=255)
+        street=models.CharField(max_length=255)
+        district=models.CharField(max_length=255)
+        city=models.CharField(max_length=255)
+        nationality=models.CharField(max_length=255)
         customerID=models.ForeignKey(Customer,on_delete=models.CASCADE)
 class Account(models.Model):
-        username= models.CharField()
-        password=models.CharField()
+        username= models.CharField(max_length=255)
+        password=models.CharField(max_length=255)
         customerID=models.ForeignKey(Customer,on_delete=models.CASCADE)
         
 class Comment (models.Model):
-        cmtbody= models.CharField()
+        cmtbody= models.CharField(max_length=255)
         CreateDate=models.DateTimeField()
         rating=models.FloatField()
         customerID=models.ForeignKey(Customer,on_delete=models.CASCADE)
+        
