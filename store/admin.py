@@ -4,11 +4,12 @@ from .models import *
 class ItemAdmin(admin.ModelAdmin):
     list_display = ('item_name',)
 
-
 class ItemTypeAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug',)
     prepopulated_fields = {'slug': ('name',)}
 
+class CustomerAdmin(admin.ModelAdmin):
+    list_display=("idCard",'mail')
 
 class VariationAdmin(admin.ModelAdmin):
     list_display = ('item', 'variation_category', 'variation_value', 'is_active',)
@@ -36,4 +37,3 @@ admin.site.register(LaptopItem, LaptopItemAdmin)
 admin.site.register(ClothesItem, ClothesItemAdmin)
 admin.site.register(MobilePhoneItem, MobilePhoneItemAdmin)
 admin.site.register(Item, ItemAdmin)
-admin.site.register(Variation, VariationAdmin)
