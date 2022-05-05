@@ -7,9 +7,9 @@ from order.models import Order,Payment
 class Cart(models.Model):
     cart_id = models.CharField(max_length=255, blank=True)
     date_add = models.DateField(auto_now_add=True)
-    CustomerID= models.ForeignKey(Customer,on_delete=models.CASCADE)
-    PaymentID= models.ForeignKey(Payment,on_delete=models.CASCADE)
-    OrderID= models.ForeignKey(Order,on_delete=models.CASCADE)
+    CustomerID= models.ForeignKey(Customer,on_delete=models.CASCADE,null=True)
+    PaymentID= models.ForeignKey(Payment,on_delete=models.CASCADE,null=True)
+    OrderID= models.ForeignKey(Order,on_delete=models.CASCADE,null=True)
     def __str__(self):
         return self.cart_id
 

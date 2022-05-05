@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'mobilePhone',
     'shoes',
     'carts',
+    'customer',
+    'order',
 
 ]
 
